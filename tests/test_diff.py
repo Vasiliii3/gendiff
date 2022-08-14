@@ -9,5 +9,5 @@ with open(file_result, "r") as res:
     result = res.read()
 
 
-def test_step2():
+def test_json_plan():
     assert diff_files.generate_diff(file_path1, file_path2) == result
