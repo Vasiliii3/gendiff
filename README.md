@@ -4,6 +4,10 @@ Project within the course [hexlet](https://ru.hexlet.io/)
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Vasiliii3/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/Vasiliii3/python-project-lvl2/actions)
+[![test lint](https://github.com/Vasiliii3/python-project-lvl2/actions/workflows/lint.yml/badge.svg)](https://github.com/Vasiliii3/python-project-lvl2/actions/workflows/lint.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e25943db8524612417db/maintainability)](https://codeclimate.com/github/Vasiliii3/python-project-lvl2/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e25943db8524612417db/test_coverage)](https://codeclimate.com/github/Vasiliii3/python-project-lvl2/test_coverage)
+
 
 ### CLI utility compares two configuration files and shows a difference
 
