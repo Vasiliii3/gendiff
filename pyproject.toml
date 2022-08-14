@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "0.1.0"
-description = "Difference Calculator"
+version = "0.3.0"
+description = "Difference generator"
 authors = ["Vasilii <petgga@gmail.com>"]
 packages = [
   { include = "gendiff" },
@@ -12,6 +12,7 @@ python = "^3.9"
 pytest = "^7.1.2"
 pytest-cov = "^3.0.0"
 flake8 = "^5.0.4"
+pip = "^22.2.2"
 
 [tool.poetry.dev-dependencies]
 
