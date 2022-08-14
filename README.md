@@ -21,3 +21,4 @@ For help:
 
 [![asciicast](https://asciinema.org/a/DYyVw36GHzH959H9DSQvgmQYD.svg)](https://asciinema.org/a/DYyVw36GHzH959H9DSQvgmQYD)
 
+<script id="asciicast-UjbmIxsNZ9RpniWBD3xvimqcJ" src="https://asciinema.org/a/UjbmIxsNZ9RpniWBD3xvimqcJ.js" async></script>
