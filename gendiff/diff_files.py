@@ -1,16 +1,10 @@
-import json
+from .parsing import open_file
 from gendiff.style import style_stylih
 
 DICT_REPLACEMENT = {False: "false",
                     True: "true",
                     None: "null"
                     }
-
-
-def open_file(file):
-    with open(file, 'r') as fp:
-        file_ = json.load(fp)
-        return file_
 
 
 def dict_to_list(array: dict) -> list:

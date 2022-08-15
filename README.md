@@ -22,5 +22,7 @@ For help:
 `usage: gendiff [-h] [-f FORMAT] first_file second_file`
 
 ##### Default stylish format
-
+json and json (pain)
 [![asciicast](https://asciinema.org/a/DYyVw36GHzH959H9DSQvgmQYD.svg)](https://asciinema.org/a/DYyVw36GHzH959H9DSQvgmQYD)
+yml and yml(pain)
+[![asciicast](https://asciinema.org/a/DjkndiFbMdhlMbgrpTASrjwjR.svg)](https://asciinema.org/a/DjkndiFbMdhlMbgrpTASrjwjR)
