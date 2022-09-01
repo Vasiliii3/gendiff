@@ -21,8 +21,12 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl
 
+package-install2:
+	python -m pip install hexlet-code dist/hexlet_code-0.3.0-py3-none-any.whl
+	# install specific version, sample 0.3.0
+
 uninstall:
-	pip uninstall hexlet_code -y
+	pip uninstall hexlet-code -y
 
 lint:
 	poetry run flake8 gendiff
