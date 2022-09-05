@@ -19,10 +19,14 @@ For help:
 
 `gendiff -h`
 
-`usage: gendiff [-h] [-f FORMAT] first_file second_file`
+`usage: gendiff [-h] [--f [type]] [--v] first_file second_file`
 
 ##### Default stylish format
 json and json (pain)
 [![asciicast](https://asciinema.org/a/DYyVw36GHzH959H9DSQvgmQYD.svg)](https://asciinema.org/a/DYyVw36GHzH959H9DSQvgmQYD)
 yml and yml(pain)
 [![asciicast](https://asciinema.org/a/DjkndiFbMdhlMbgrpTASrjwjR.svg)](https://asciinema.org/a/DjkndiFbMdhlMbgrpTASrjwjR)
+json and json (tree)
+[![asciicast](https://asciinema.org/a/hgjUuMl5ykZ9rlnvaiyWY3eyA.svg)](https://asciinema.org/a/hgjUuMl5ykZ9rlnvaiyWY3eyA)
+
+yml and yml(tree) works similarly

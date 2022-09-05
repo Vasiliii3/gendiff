@@ -11,7 +11,17 @@ def delet_valus_list(array: list, val: str) -> list:
     return [n for n in array if n[1] != val]
 
 
-def walk(dict1, dict2): # noqa: max-complexity: 10
+def children(key, suffix, dict1, dict2, list2):
+    if key in dict2 and isinstance(dict2[key], dict):
+        value = walk(dict1[key], dict2[key])
+        list2 = delet_valus_list(list2, key)
+    else:
+        value = dict_to_list(dict1[key])
+        suffix = "-"
+    return value, list2, suffix
+
+
+def walk(dict1, dict2):
     result = []
 
     list1 = dict_to_list(dict1)
@@ -19,12 +29,7 @@ def walk(dict1, dict2): # noqa: max-complexity: 10
 
     for suffix, key, value in list1:
         if isinstance(value, list):
-            if key in dict2 and isinstance(dict2[key], dict):
-                value = walk(dict1[key], dict2[key])
-                list2 = delet_valus_list(list2, key)
-            else:
-                value = dict_to_list(dict1[key])
-                suffix = "-"
+            value, list2, suffix = children(key, suffix, dict1, dict2, list2)
 
             result.append((suffix, key, value))
             continue
