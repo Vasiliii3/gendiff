@@ -3,10 +3,9 @@
 import argparse
 from gendiff import diff_files
 from gendiff import __version__ as version
+from gendiff.formatter.constants import TYPE_FORMAT
 
 DESCRIPTION = 'Compares two configuration files and shows a difference.'
-
-TYPE_FORMAT = ['stylish', ]
 
 
 def main():

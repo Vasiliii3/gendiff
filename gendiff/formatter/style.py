@@ -1,7 +1,4 @@
-DICT_REPLACEMENT = {False: "false",
-                    True: "true",
-                    None: "null"
-                    }
+from gendiff.formatter.constants import DICT_REPLACEMENT
 
 
 def stylish(tree: list) -> str:
