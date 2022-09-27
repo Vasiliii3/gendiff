@@ -15,7 +15,7 @@ def main():
 
     parser.add_argument('second_file', type=str)
 
-    parser.add_argument('--f', '--format', dest='format',
+    parser.add_argument('-f', '--format', dest='format',
                         default="stylish", type=str,
                         choices=TYPE_FORMAT, metavar='[type]',
                         help='set format of output (default:stylish)')
