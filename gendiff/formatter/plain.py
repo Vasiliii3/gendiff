@@ -1,4 +1,4 @@
-from gendiff.formatter.constants import DICT_REPLACEMENT
+from gendiff.formatter.constants import replacement
 
 BEFORE = 'Property'
 
@@ -6,8 +6,8 @@ BEFORE = 'Property'
 def replacement_value(value):
     if isinstance(value, list):
         return '[complex value]'
-    elif value in DICT_REPLACEMENT:
-        return DICT_REPLACEMENT[value]
+    elif value is None or isinstance(value, bool):
+        return replacement(value)
     return f"'{value}'"
 
 

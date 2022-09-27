@@ -1,4 +1,4 @@
-from gendiff.formatter.constants import DICT_REPLACEMENT
+from gendiff.formatter.constants import replacement
 
 
 def stylish(tree: list) -> str:
@@ -11,7 +11,7 @@ def stylish(tree: list) -> str:
                 value = walk(value, level + 4)
                 value += emtpy + "   }"
             else:
-                value = DICT_REPLACEMENT.get(value, value)
+                value = replacement(value)
             result += f'{emtpy} {diff} {key}: {value}\n'
         return result
 
