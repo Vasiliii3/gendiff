@@ -8,6 +8,8 @@ def replacement_value(value):
         return '[complex value]'
     elif value is None or isinstance(value, bool):
         return replacement(value)
+    elif isinstance(value, int):
+        return value
     return f"'{value}'"
 
 
