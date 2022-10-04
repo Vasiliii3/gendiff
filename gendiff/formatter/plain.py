@@ -1,13 +1,13 @@
-from gendiff.formatter.constants import replacement
+from gendiff.formatter.constants import to_str_python_to_json
 
 BEFORE = 'Property'
 
 
-def replacement_value(value):
+def key_to_string(value):
     if isinstance(value, list):
         return '[complex value]'
     elif value is None or isinstance(value, bool):
-        return replacement(value)
+        return to_str_python_to_json(value)
     elif isinstance(value, int):
         return value
     return f"'{value}'"
@@ -21,9 +21,9 @@ def plain(tree: list) -> str: # noqa: max-complexity: 8
             way_ = f'{way}{key}'
             if diff == " " and isinstance(value, list):
                 result += walk(value, f'{way_}.')
-            value = replacement_value(value)
+            value = key_to_string(value)
             if (count + 1) != len(tree_) and key == tree_[count + 1][1]:
-                new_value = replacement_value(tree_[count + 1][2])
+                new_value = key_to_string(tree_[count + 1][2])
                 result += f"{BEFORE} '{way_}' was updated. " \
                           f"From {value} to {new_value}\n"
                 continue

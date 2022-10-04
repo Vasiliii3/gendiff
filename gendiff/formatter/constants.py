@@ -1,4 +1,4 @@
-def replacement(value):
+def to_str_python_to_json(value):
     if value is False:
         return "false"
     elif value is True:
