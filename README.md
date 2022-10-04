@@ -19,7 +19,7 @@ For help:
 
 `gendiff -h`
 
-`usage: gendiff [-h] [--f [type]] [--v] first_file second_file`
+`usage: gendiff [-h] [-f [type]] [--v] first_file second_file`
 
 ##### Default stylish format
 json and json (pain)
@@ -33,12 +33,12 @@ yml and yml(tree) works similarly
 
 ##### Default plain format
 call example 
-`gendiff --f plain tests/fixtures/file3.json tests/fixtures/file4.json`
+`gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json`
 
 [![asciicast](https://asciinema.org/a/NWAH5oz2x1d0P9pBlDscowcc9.svg)](https://asciinema.org/a/NWAH5oz2x1d0P9pBlDscowcc9)
 
 ##### Default json format
 call example 
-`gendiff --f json tests/fixtures/file3.json tests/fixtures/file4.json`
+`gendiff -f json tests/fixtures/file3.json tests/fixtures/file4.json`
 
 [![asciicast](https://asciinema.org/a/dEvCzFlrogSe8E7a5hbR0FRae.svg)](https://asciinema.org/a/dEvCzFlrogSe8E7a5hbR0FRae)
