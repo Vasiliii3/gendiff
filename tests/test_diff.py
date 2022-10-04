@@ -25,28 +25,49 @@ def open_file(file):
     return result
 
 
-result_flat = open_file(file_result_flat)
-result_tree = open_file(file_result_tree)
-result_plain = open_file(file_result_plain)
-result_json = open_file(file_result_json_json)
+@pytest.fixture
+def result_flat():
+    return open_file(file_result_flat)
 
 
-@pytest.mark.parametrize("file_one, file_two, file_result",
+@pytest.fixture
+def result_tree():
+    return open_file(file_result_tree)
+
+
+@pytest.fixture
+def result_plain():
+    return open_file(file_result_plain)
+
+
+@pytest.fixture
+def result_json():
+    return open_file(file_result_json_json)
+
+
+@pytest.mark.parametrize("file_one, file_two",
                          [
-                             (file_json_1_flat, file_json_2_flat, result_flat),
-                             (file_json_3_tree, file_json_4_tree, result_tree),
-                             (file_yml_1_flat, file_yml_2_flat, result_flat),
-                             (file_yml_3_tree, file_yml_4_tree, result_tree)
+                             (file_json_1_flat, file_json_2_flat),
+                             (file_yml_1_flat, file_yml_2_flat),
                          ])
-def test_json_stylish(file_one, file_two, file_result):
-    assert diff_files.generate_diff(file_one, file_two) == file_result
+def test_flat_stylish(file_one, file_two, result_flat):
+    assert diff_files.generate_diff(file_one, file_two) == result_flat
 
 
-def test_json_plain():
+@pytest.mark.parametrize("file_one, file_two",
+                         [
+                             (file_json_3_tree, file_json_4_tree),
+                             (file_yml_3_tree, file_yml_4_tree)
+                         ])
+def test_tree_stylish(file_one, file_two, result_tree):
+    assert diff_files.generate_diff(file_one, file_two) == result_tree
+
+
+def test_json_plain(result_plain):
     assert diff_files.generate_diff(file_json_3_tree, file_json_4_tree, "plain") == result_plain
 
 
-def test_json_json():
+def test_json_json(result_json):
     assert diff_files.generate_diff(file_json_3_tree, file_json_4_tree, "json") == result_json
 
 
