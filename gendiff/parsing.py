@@ -1,13 +1,11 @@
-import json
-import yaml
-from yaml.loader import SafeLoader
+import os.path
+from gendiff.formatter.constants import TYPE_FILE
 
+ERROR_TYPE = f'format file not supported. Supported {TYPE_FILE}'
 
-def open_file(file):
-    with open(file, 'r') as fp:
-        type_file = file.split(".")[1]
-        if type_file == "json":
-            file_ = json.load(fp)
-        elif type_file == "yml" or "yaml":
-            file_ = yaml.load(fp, Loader=SafeLoader)
-        return file_
+def parsing_type_file(file):
+    path, type_file = os.path.splitext(file)
+    type_fle_without_point = type_file[1:]
+    if type_fle_without_point not in TYPE_FILE:
+        raise Exception(ERROR_TYPE)
+    return type_fle_without_point
