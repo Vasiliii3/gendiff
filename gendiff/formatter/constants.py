@@ -9,3 +9,4 @@ def to_str_python_to_json(value):
 
 
 TYPE_FORMAT = ['stylish', 'plain', 'json']
+TYPE_FILE = ["json", "yml", "yaml"]
