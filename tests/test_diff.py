@@ -1,22 +1,28 @@
 from gendiff import diff_files
 import pytest
+import os
 
-file_json_1_flat = "tests/fixtures/file1.json"
-file_json_2_flat = "tests/fixtures/file2.json"
 
-file_json_3_tree = "tests/fixtures/file3.json"
-file_json_4_tree = "tests/fixtures/file4.json"
+def get_fixture_path(name):
+    return os.path.join('tests', 'fixtures', name)
 
-file_yml_1_flat = 'tests/fixtures/file1.yml'
-file_yml_2_flat = 'tests/fixtures/file2.yaml'
 
-file_yml_3_tree = 'tests/fixtures/file3.yml'
-file_yml_4_tree = 'tests/fixtures/file4.yml'
+file_json_1_flat = get_fixture_path('file1.json')
+file_json_2_flat = get_fixture_path('file2.json')
 
-file_result_flat = "tests/fixtures/result_12_json.txt"
-file_result_tree = "tests/fixtures/result_34_json(stylish).txt"
-file_result_plain = "tests/fixtures/result_34_plain.txt"
-file_result_json_json = "tests/fixtures/result_34_json(json).txt"
+file_json_3_tree = get_fixture_path('file3.json')
+file_json_4_tree = get_fixture_path('file4.json')
+
+file_yml_1_flat = get_fixture_path('file1.yml')
+file_yml_2_flat = get_fixture_path('file2.yaml')
+
+file_yml_3_tree = get_fixture_path('file3.yml')
+file_yml_4_tree = get_fixture_path('file4.yml')
+
+file_result_flat = get_fixture_path('result_12_json.txt')
+file_result_tree = get_fixture_path('result_34_json(stylish).txt')
+file_result_plain = get_fixture_path('result_34_plain.txt')
+file_result_json_json = get_fixture_path('result_34_json(json).txt')
 
 
 def open_file(file):
@@ -72,5 +78,5 @@ def test_json_json(result_json):
 
 
 def test_empty():
-    file1 = "tests/fixtures/file_empty.json"
+    file1 = get_fixture_path('file_empty.json')
     assert diff_files.generate_diff(file1, file1, "stylish") == '{\n}'
