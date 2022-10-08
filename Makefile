@@ -34,6 +34,9 @@ uninstall:
 lint:
 	poetry run flake8 gendiff
 
+lint-test:
+	poetry run flake8 tests
+
 .PHONY: install test lint selfcheck check build
 
 gendiff:

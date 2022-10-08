@@ -70,11 +70,13 @@ def test_tree_stylish(file_one, file_two, result_tree):
 
 
 def test_json_plain(result_plain):
-    assert diff_files.generate_diff(file_json_3_tree, file_json_4_tree, "plain") == result_plain
+    assert diff_files.generate_diff(file_json_3_tree,
+                                    file_json_4_tree, "plain") == result_plain
 
 
 def test_json_json(result_json):
-    assert diff_files.generate_diff(file_json_3_tree, file_json_4_tree, "json") == result_json
+    assert diff_files.generate_diff(file_json_3_tree,
+                                    file_json_4_tree, "json") == result_json
 
 
 def test_empty():
