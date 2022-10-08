@@ -1,4 +1,5 @@
 from gendiff.formatter.constants import to_str_python_to_json
+from gendiff.constants import SYMBOLS
 
 
 def stylish(tree: list) -> str:
@@ -7,6 +8,7 @@ def stylish(tree: list) -> str:
         for string in tree_:
             emtpy = " " * level
             diff, key, value = string
+            diff = SYMBOLS[diff]
             if isinstance(value, list):
                 value = walk(value, level + 4)
                 value += emtpy + "   }"

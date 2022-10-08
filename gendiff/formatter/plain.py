@@ -1,3 +1,4 @@
+from gendiff.constants import ADDED, REMOVED, CHANGED2, UNCHANGED
 from gendiff.formatter.constants import to_str_python_to_json
 
 BEFORE = 'Property'
@@ -19,17 +20,16 @@ def plain(tree: list) -> str: # noqa: max-complexity: 8
         for count, nodes in enumerate(tree_, 0):
             diff, key, value = nodes
             way_ = f'{way}{key}'
-            if diff == " " and isinstance(value, list):
+            if diff == UNCHANGED and isinstance(value, list):
                 result += walk(value, f'{way_}.')
             value = key_to_string(value)
-            if (count + 1) != len(tree_) and key == tree_[count + 1][1]:
-                new_value = key_to_string(tree_[count + 1][2])
+            if diff == CHANGED2:
+                old_value = key_to_string(tree_[count - 1][2])
                 result += f"{BEFORE} '{way_}' was updated. " \
-                          f"From {value} to {new_value}\n"
-                continue
-            if diff == "+" and key != tree_[count - 1][1]:
+                          f"From {old_value} to {value}\n"
+            elif diff == ADDED:
                 result += f"{BEFORE} '{way_}' was added with value: {value}\n"
-            if diff == "-":
+            elif diff == REMOVED:
                 result += f"{BEFORE} '{way_}' was removed\n"
 
         return result

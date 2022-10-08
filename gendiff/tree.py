@@ -1,37 +1,49 @@
-def dict_to_list(array):
+from gendiff.constants import ADDED, REMOVED, CHANGED1, CHANGED2, UNCHANGED
+
+
+def dict_to_list(array: dict):
     result = []
     for key, value in array.items():
         if isinstance(value, dict):
             value = dict_to_list(value)
-        result.append((" ", key, value))
+        result.append((UNCHANGED, key, value))
     return result
 
-def walk(dict1, dict2): # noqa: max-complexity: 10
-    result = []
+def walk(data_one: dict, data_two: dict):  # noqa: max-complexity: 10
+    diff = []
 
-    list1 = dict_to_list(dict1)
-    list2 = dict_to_list(dict2)
+    new_data_one = dict_to_list(data_one)
+    new_data_two = dict_to_list(data_two)
 
-    for suffix, key, value in list1:
+    for suffix, key, value in new_data_one:
         if isinstance(value, list):
-            if key in dict2 and isinstance(dict2[key], dict):
-                value = walk(dict1[key], dict2[key])
-                list2 = [n for n in list2 if n[1] != key]
+            if key in data_two and isinstance(data_two[key], dict):
+                value = walk(data_one[key], data_two[key])
+                new_data_two = [n for n in new_data_two if n[1] != key]
+            elif key in data_two and isinstance(data_two[key], str):
+                suffix = CHANGED1
             else:
-                value = dict_to_list(dict1[key])
-                suffix = "-"
+                suffix = REMOVED
+                value = dict_to_list(data_one[key])
 
-            result.append((suffix, key, value))
+            diff.append((suffix, key, value))
             continue
-        if key in dict2 and value == dict2[key]:
-            list2 = [n for n in list2 if n[1] != key]
-        else:
-            suffix = "-"
-        result.append((suffix, key, value))
+        if key in data_two and value == data_two[key]:
+            new_data_two = [n for n in new_data_two if n[1] != key]
 
-    for suffix, key, value in list2:
+        elif key in data_two and value != data_two[key]:
+            suffix = CHANGED1
+        else:
+            suffix = REMOVED
+        diff.append((suffix, key, value))
+
+    for suffix, key, value in new_data_two:
         if isinstance(value, list):
-            value = walk(dict2[key], dict2[key])
-        result.append(("+", key, value))
-    result.sort(key=lambda x: x[1])
-    return result
+            value = walk(data_two[key], data_two[key])
+        if key in data_one:
+            suffix = CHANGED2
+        else:
+            suffix = ADDED
+        diff.append((suffix, key, value))
+    diff.sort(key=lambda x: x[1])
+    return diff

@@ -1,44 +1,44 @@
 {
-    "  common": {
-        "+ follow": false,
-        "  setting1": "Value 1",
-        "- setting2": 200,
-        "- setting3": true,
-        "+ setting3": null,
-        "+ setting4": "blah blah",
-        "+ setting5": {
-            "  key5": "value5"
+    "unchanged common": {
+        "add follow": false,
+        "unchanged setting1": "Value 1",
+        "removed setting2": 200,
+        "changed_from_one setting3": true,
+        "changed_from_two setting3": null,
+        "add setting4": "blah blah",
+        "add setting5": {
+            "unchanged key5": "value5"
         },
-        "  setting6": {
-            "  doge": {
-                "- wow": "",
-                "+ wow": "so much"
+        "unchanged setting6": {
+            "unchanged doge": {
+                "changed_from_one wow": "",
+                "changed_from_two wow": "so much"
             },
-            "  key": "value",
-            "+ ops": "vops"
+            "unchanged key": "value",
+            "add ops": "vops"
         }
     },
-    "  group1": {
-        "- baz": "bas",
-        "+ baz": "bars",
-        "  foo": "bar",
-        "- nest": {
-            "  key": "value"
+    "unchanged group1": {
+        "changed_from_one baz": "bas",
+        "changed_from_two baz": "bars",
+        "unchanged foo": "bar",
+        "changed_from_one nest": {
+            "unchanged key": "value"
         },
-        "+ nest": "str"
+        "changed_from_two nest": "str"
     },
-    "- group2": {
-        "  abc": 12345,
-        "  deep": {
-            "  id": 45
+    "removed group2": {
+        "unchanged abc": 12345,
+        "unchanged deep": {
+            "unchanged id": 45
         }
     },
-    "+ group3": {
-        "  deep": {
-            "  id": {
-                "  number": 45
+    "add group3": {
+        "unchanged deep": {
+            "unchanged id": {
+                "unchanged number": 45
             }
         },
-        "  fee": 100500
+        "unchanged fee": 100500
     }
 }
