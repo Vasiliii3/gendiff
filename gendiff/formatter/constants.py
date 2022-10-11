@@ -1,4 +1,4 @@
-def to_str_python_to_json(value):
+def to_string(value):
     if value is False:
         return "false"
     elif value is True:

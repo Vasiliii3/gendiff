@@ -1,5 +1,5 @@
 from gendiff.constants import ADDED, REMOVED, CHANGED2, UNCHANGED
-from gendiff.formatter.constants import to_str_python_to_json
+from gendiff.formatter.constants import to_string
 
 BEFORE = 'Property'
 
@@ -8,7 +8,7 @@ def key_to_string(value):
     if isinstance(value, list):
         return '[complex value]'
     elif value is None or isinstance(value, bool):
-        return to_str_python_to_json(value)
+        return to_string(value)
     elif isinstance(value, int):
         return value
     return f"'{value}'"
