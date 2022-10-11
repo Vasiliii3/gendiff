@@ -25,7 +25,7 @@ file_result_plain = get_fixture_path('result_34_plain.txt')
 file_result_json_json = get_fixture_path('result_34_json(json).txt')
 
 
-def open_file(file):
+def read_file(file):
     with open(file, "r") as res:
         result = res.read()
     return result
@@ -33,22 +33,22 @@ def open_file(file):
 
 @pytest.fixture
 def result_flat():
-    return open_file(file_result_flat)
+    return read_file(file_result_flat)
 
 
 @pytest.fixture
 def result_tree():
-    return open_file(file_result_tree)
+    return read_file(file_result_tree)
 
 
 @pytest.fixture
 def result_plain():
-    return open_file(file_result_plain)
+    return read_file(file_result_plain)
 
 
 @pytest.fixture
 def result_json():
-    return open_file(file_result_json_json)
+    return read_file(file_result_json_json)
 
 
 @pytest.mark.parametrize("file_one, file_two",
