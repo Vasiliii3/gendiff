@@ -5,7 +5,7 @@ from gendiff.formatter.constants import TYPE_FILE
 
 ERROR_TYPE = f'format file not supported. Supported {TYPE_FILE}'
 
-parsers = {
+PARSERS = {
     "json": json.loads,
     "yaml": yaml.safe_load,
     "yml": yaml.safe_load,
