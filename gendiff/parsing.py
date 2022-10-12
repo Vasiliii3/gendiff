@@ -22,4 +22,4 @@ def parsing_type_file(file):
 
 def data_to_dict(data, file):
     type_file = parsing_type_file(file)
-    return parsers[type_file](data)
+    return PARSERS[type_file](data)
