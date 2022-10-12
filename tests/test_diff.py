@@ -1,4 +1,5 @@
 from gendiff import diff_files
+from gendiff.io import read_file
 import pytest
 import os
 
@@ -23,12 +24,6 @@ file_result_flat = get_fixture_path('result_12_json.txt')
 file_result_tree = get_fixture_path('result_34_json(stylish).txt')
 file_result_plain = get_fixture_path('result_34_plain.txt')
 file_result_json_json = get_fixture_path('result_34_json(json).txt')
-
-
-def read_file(file):
-    with open(file, "r") as res:
-        result = res.read()
-    return result
 
 
 @pytest.fixture
