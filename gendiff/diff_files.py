@@ -17,6 +17,12 @@ FORMAT = {'stylish': stylish,
 ERROR_FORMAT = f'format not supported. Supported {TYPE_FORMAT}'
 
 
+def file_to_data(file):
+    data = read_file(file)
+    type_file = get_format(file)
+    return parse(data, type_file)
+
+
 def get_format(file):
     path, type_file = os.path.splitext(file)
     type_fle_without_point = type_file[1:]
@@ -28,8 +34,8 @@ def get_format(file):
 def generate_diff(file_path_one, file_path_two, style: str = 'stylish') -> str:
     if style not in TYPE_FORMAT:
         raise Exception(ERROR_FORMAT)
-    data_file_one = parse(read_file(file_path_one), get_format(file_path_one))
-    data_file_two = parse(read_file(file_path_two), get_format(file_path_two))
+    data_file_one = file_to_data(file_path_one)
+    data_file_two = file_to_data(file_path_two)
 
     tree = walk(data_file_one, data_file_two)
 
