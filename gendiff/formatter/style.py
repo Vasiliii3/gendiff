@@ -3,17 +3,20 @@ from gendiff.constants import SYMBOLS
 
 
 def stylish(tree: list) -> str:
+    def format_value(value, level):
+        if isinstance(value, list):
+            return walk(value, level + 4)
+        else:
+            return to_string(value)
+
     def walk(tree_, level=1):
         result = '{\n'
-        emtpy = " " * level
+        empty = " " * level
         for string in tree_:
             diff, key, value = string
             diff = SYMBOLS[diff]
-            if isinstance(value, list):
-                value = walk(value, level + 4)
-            else:
-                value = to_string(value)
-            result += f'{emtpy} {diff} {key}: {value}\n'
+            formatted_value = format_value(value, level)
+            result += f'{empty} {diff} {key}: {formatted_value}\n'
         result += " " * (level - 1) + "}"
         return result
 
