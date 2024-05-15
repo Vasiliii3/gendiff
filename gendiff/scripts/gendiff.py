@@ -19,7 +19,7 @@ def main():
                         default="stylish", type=str,
                         choices=TYPE_FORMAT, metavar='[type]',
                         help='set format of output (default:stylish)')
-    # увидел в видео, решил повторить, возможно и лишние
+
     parser.add_argument('--v', '--version', action='version', version=version)
 
     args = parser.parse_args()
